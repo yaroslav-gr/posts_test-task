@@ -1,8 +1,8 @@
 export const AppRoute = {
-  ARTICLE1: `/article1`,
-  ARTICLE2: `/article2`,
+  ROOT: `/`,
+  POSTS: `/posts`,
 };
 
-export const ApiRoute = {
-  ROOT: `/`,
+export const APIRoute = {
+  POSTS: `/posts`,
 };

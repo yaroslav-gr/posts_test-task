@@ -1,10 +1,10 @@
 export const ActionType = {
-  ACTION: `action/action`,
+  LOAD_POSTS: `posts/loadPOsts`,
 };
 
 export const ActionCreator = {
-  action: (data) => ({
-    type: ActionType.ACTION,
-    payload: data,
+  loadPosts: (posts) => ({
+    type: ActionType.LOAD_POSTS,
+    payload: posts,
   }),
 };

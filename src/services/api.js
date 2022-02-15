@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BECKEND_URL = ``;
+const BECKEND_URL = `https://jsonplaceholder.typicode.com`;
 
 export const createAPI = () => {
   const api = axios.create({

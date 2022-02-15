@@ -1,15 +1,15 @@
 import {ActionType} from '../store/actions';
 
 const initialState = {
-  data: [],
+  posts: [],
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case ActionType.ACTION:
+    case ActionType.LOAD_POSTS:
       return {
         ...state,
-        data: action.payload,
+        posts: action.payload,
       };
   };
   return state;
