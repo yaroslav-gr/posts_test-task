@@ -6,3 +6,14 @@ export const AppRoute = {
 export const APIRoute = {
   POSTS: `/posts`,
 };
+
+export const navList = [
+  {
+    name: `main page`,
+    url: `/`
+  },
+  {
+    name: `posts`,
+    url: `/posts`
+  }
+];

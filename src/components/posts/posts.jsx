@@ -1,9 +1,14 @@
 import React from 'react';
+import NavMenu from '../nav-menu/nav-menu';
+import MainContainer from '../main-container/main-container';
 
 const Article2 = () => {
   return (
     <React.Fragment>
-      <h1>Posts page</h1>
+      <MainContainer>
+        <NavMenu/>
+        <h1>Posts page</h1>
+      </MainContainer>
     </React.Fragment>
   );
 };
