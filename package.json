@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "build styles": "npx tailwindcss -i ./src/input.css -o ./public/output.css --watch"
   },
   "devDependencies": {
     "@babel/core": "7.12.13",
