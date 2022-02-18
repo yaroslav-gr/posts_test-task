@@ -1,16 +1,19 @@
 import React from 'react';
 import NavMenu from '../nav-menu/nav-menu';
 import MainContainer from '../main-container/main-container';
+import PostsList from './posts-list';
+import Header from '../header/header';
 
-const Article2 = () => {
+const PostsPage = () => {
   return (
     <React.Fragment>
       <MainContainer>
         <NavMenu/>
-        <h1>Posts page</h1>
+        <Header title={`Posts:`}/>
+        <PostsList/>
       </MainContainer>
     </React.Fragment>
   );
 };
 
-export default Article2;
+export default PostsPage;
