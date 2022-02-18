@@ -1,8 +1,8 @@
 import React from 'react';
 import {Switch, Route, Router as BrowserRouter} from 'react-router-dom';
 import browserHistory from '../../browser-history';
-import Article1 from '../main/main';
-import Article2 from '../posts/posts';
+import MainPage from '../main/main';
+import PostsPage from '../posts/posts-page';
 import { AppRoute } from '../../const/const';
  
 const App = () => {
@@ -10,10 +10,10 @@ const App = () => {
     <BrowserRouter history={browserHistory}>
       <Switch>
         <Route exact path={AppRoute.ROOT}>
-          <Article1/>
+          <MainPage/>
         </Route>
         <Route exact path={AppRoute.POSTS}>
-          <Article2/>
+          <PostsPage/>
         </Route>
       </Switch>
     </BrowserRouter>

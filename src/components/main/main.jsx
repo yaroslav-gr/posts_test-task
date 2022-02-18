@@ -1,13 +1,14 @@
 import React from 'react';
 import NavMenu from '../nav-menu/nav-menu';
 import MainContainer from '../main-container/main-container';
+import Header from '../header/header';
 
-const Article1 = () => {
+const MainPage = () => {
   return (
     <React.Fragment>
       <MainContainer>
         <NavMenu/>
-        <h1 className="text-3xl font-nornal text-slate-700">Page description:</h1>
+        <Header title={`Page description:`}/>
         <p className='my-2'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam faucibus purus in massa. Convallis aenean et tortor at. Turpis egestas maecenas pharetra convallis posuere. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed. Odio morbi quis commodo odio. Mattis enim ut tellus elementum sagittis vitae et leo. Volutpat commodo sed egestas egestas. Adipiscing elit pellentesque habitant morbi. Porta nibh venenatis cras sed felis eget velit aliquet sagittis. Turpis massa tincidunt dui ut ornare. Ut diam quam nulla porttitor massa id neque. Urna condimentum mattis pellentesque id nibh. Euismod nisi porta lorem mollis aliquam ut porttitor leo a. Tincidunt tortor aliquam nulla facilisi cras fermentum odio. Sit amet commodo nulla facilisi nullam vehicula.
           <br/>
@@ -19,4 +20,4 @@ const Article1 = () => {
   );
 };
 
-export default Article1;
+export default MainPage;
