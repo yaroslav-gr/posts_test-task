@@ -4,7 +4,7 @@ export const AppRoute = {
 };
 
 export const APIRoute = {
-  POSTS: `/posts/`,
+  POSTS: `/posts?_limit=8`,
 };
 
 export const navList = [

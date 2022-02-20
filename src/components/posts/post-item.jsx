@@ -3,7 +3,7 @@ import React from 'react';
 const Post = ({post}) => {
   return (
     <React.Fragment>
-      <div className='w-full md:w-1/3 lg:w-1/4 2xl:w-1/5 min-h-[12.5rem] flex flex-col justify-between card'>
+      <div className='min-h-[12.5rem] flex flex-col justify-between card'>
         <h1 className='mb-4'>{post.title}</h1>
         <div 
           contentEditable 
