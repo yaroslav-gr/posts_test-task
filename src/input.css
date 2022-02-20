@@ -11,9 +11,8 @@
   }
 }
 
-body {
-  overflow: scroll;
-}
+
+
 
 .editable {
   outline: 1px solid rgb(189, 189, 189);
@@ -23,4 +22,33 @@ body {
 .noteditable {
   outline: 0px solid transparent;
   color: rgb(100 116 139);
+}
+
+/* scroll bar */
+textarea::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+textarea::-webkit-scrollbar-track {
+  background: rgb(228, 228, 228);        /* color of the tracking area */
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: rgb(160, 160, 160);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid rgb(228, 228, 228);  /* creates padding around scroll thumb */
+}
+
+body::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: rgb(228, 228, 228);        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(160, 160, 160);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid rgb(228, 228, 228);  /* creates padding around scroll thumb */
 }
