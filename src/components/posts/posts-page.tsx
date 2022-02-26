@@ -4,7 +4,7 @@ import MainContainer from '../main-container/main-container';
 import PostsList from './posts-list';
 import Header from '../header/header';
 
-const PostsPage = () => {
+const PostsPage = (): JSX.Element => {
   return (
     <React.Fragment>
       <MainContainer>

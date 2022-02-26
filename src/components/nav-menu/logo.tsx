@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { AppRoute } from '../../const/const';
 
-const Logo = () => {
+const Logo = (): JSX.Element => {
   return (
     <React.Fragment>
       <div className='w-full'>

@@ -1,10 +1,10 @@
-export const AppRoute = {
-  ROOT: `/`,
-  POSTS: `/posts`,
+export enum AppRoute {
+  ROOT = `/`,
+  POSTS = `/posts`,
 };
 
-export const APIRoute = {
-  POSTS: `/posts?_limit=8`,
+export enum APIRoute {
+  POSTS = `/posts?_limit=8`,
 };
 
 export const navList = [

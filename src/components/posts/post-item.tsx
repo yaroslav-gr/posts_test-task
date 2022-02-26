@@ -1,6 +1,7 @@
 import React from 'react';
+import { PostProps } from './types';
 
-const Post = ({post}) => {
+const Post = ({post}: PostProps): JSX.Element => {
   return (
     <React.Fragment>
       <div className='min-h-[12.5rem] flex flex-col justify-between card'>

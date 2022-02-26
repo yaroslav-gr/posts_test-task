@@ -3,7 +3,7 @@ import NavMenu from '../nav-menu/nav-menu';
 import MainContainer from '../main-container/main-container';
 import Header from '../header/header';
 
-const MainPage = () => {
+const MainPage = (): JSX.Element => {
   return (
     <React.Fragment>
       <MainContainer>

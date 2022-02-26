@@ -1,7 +1,5 @@
 import { State, ActionTypes, LOAD_POSTS } from './types';
 
-
-
 const initialState: State = {
   posts: [],
 };
@@ -11,10 +9,10 @@ const reducer = (state = initialState, action: ActionTypes): State => {
     case LOAD_POSTS:
       return {
         ...state,
-        posts: [...action.payload],
+        posts: action.payload,
       };
   };
   return state;
 };
 
-export {reducer};
+export { reducer };

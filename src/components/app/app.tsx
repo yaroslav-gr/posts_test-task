@@ -5,7 +5,7 @@ import MainPage from '../main/main';
 import PostsPage from '../posts/posts-page';
 import { AppRoute } from '../../const/const';
  
-const App = () => {
+const App = (): JSX.Element => {
   return (
     <BrowserRouter history={browserHistory}>
       <Switch>
@@ -17,8 +17,6 @@ const App = () => {
         </Route>
       </Switch>
     </BrowserRouter>
-      
-  
   );
 };
 

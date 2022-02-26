@@ -17,7 +17,3 @@ export interface ActionLoadPosts {
 };
 
 export type ActionTypes = ActionLoadPosts;
-
-// export interface FetchPostsData {
-//   data: Post[]
-// };
