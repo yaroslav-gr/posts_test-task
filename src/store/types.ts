@@ -1,4 +1,5 @@
 export const LOAD_POSTS = `posts/loadPosts`;
+export const ADD_NEW_POST = `posts/addNewPost`;
 
 export interface Post {
   userId: number,
@@ -8,7 +9,8 @@ export interface Post {
 };
 
 export interface State {
-  posts: Post[]
+  posts: Post[],
+  newPostId: number | null,
 };
 
 export interface ActionLoadPosts {
@@ -16,4 +18,9 @@ export interface ActionLoadPosts {
   payload: Post[]
 };
 
-export type ActionTypes = ActionLoadPosts;
+export interface ActionAddNewPost {
+  type: typeof ADD_NEW_POST,
+  payload: Post,
+};
+
+export type ActionTypes = ActionLoadPosts | ActionAddNewPost;

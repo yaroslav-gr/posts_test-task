@@ -7,3 +7,9 @@ export interface PostProps {
 export interface PostsListProps {
   posts: Post[]
 };
+
+export interface AddPostFormData {
+  userId: number,
+  title: string,
+  body: string,
+};

@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { fetchPosts } from './store/api-actions';
 import { store } from './store/store';
 
-//@ts-ignore
+// @ts-ignore
 store.dispatch(fetchPosts());
 
 ReactDOM.render(

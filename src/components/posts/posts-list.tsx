@@ -1,11 +1,13 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Post from './post-item';
 import AddPostForm from './post-add-form';
-import { PostsListProps } from './types';
 import Pagination from '../pagination-bar/pagination-bar';
+import { State } from '../../store/types';
 
-const PostsList = ({posts}: PostsListProps): JSX.Element => {
+const PostsList = (): JSX.Element => {
+  const posts = useSelector((state: State) => state.posts);
+
   return (
     <React.Fragment>
       <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
@@ -17,8 +19,4 @@ const PostsList = ({posts}: PostsListProps): JSX.Element => {
   );
 };
 
-const mapStateToProps = (state: any) => ({
-  posts: state.posts,
-})
-
-export default connect(mapStateToProps, null)(PostsList);
+export default PostsList;
