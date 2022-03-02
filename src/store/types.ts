@@ -1,6 +1,7 @@
 export const LOAD_POSTS = `posts/loadPosts`;
 export const ADD_NEW_POST = `posts/addNewPost`;
 export const SET_STATUS_ADD_POST = `posts/setStatusAddPost`;
+export const DELETE_POST = `posts/deletePost`;
 
 export interface Post {
   userId: number,
@@ -29,4 +30,9 @@ export interface ActionSetStatusAddPost {
   payload: boolean,
 };
 
-export type ActionTypes = ActionLoadPosts | ActionAddNewPost | ActionSetStatusAddPost;
+export interface ActionDeletePost {
+  type: typeof DELETE_POST,
+  payload: number
+};
+
+export type ActionTypes = ActionLoadPosts | ActionAddNewPost | ActionSetStatusAddPost | ActionDeletePost;

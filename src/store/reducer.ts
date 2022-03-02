@@ -1,4 +1,4 @@
-import { State, ActionTypes, LOAD_POSTS, ADD_NEW_POST, SET_STATUS_ADD_POST } from './types';
+import { State, ActionTypes, LOAD_POSTS, ADD_NEW_POST, SET_STATUS_ADD_POST, DELETE_POST } from './types';
 
 const initialState: State = {
   posts: [],
@@ -23,6 +23,12 @@ const reducer = (state = initialState, action: ActionTypes): State => {
       return {
         ...state,
         isPostAdded: action.payload
+      };
+
+      case DELETE_POST:
+      return {
+        ...state,
+        posts: state.posts.filter((item) => item.id !== action.payload)
       };
 
     default: return state;

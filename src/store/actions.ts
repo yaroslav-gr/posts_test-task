@@ -1,5 +1,5 @@
 import { ActionCreator, Action } from 'redux';
-import { ActionTypes, ADD_NEW_POST, LOAD_POSTS, Post, SET_STATUS_ADD_POST } from './types';
+import { ActionTypes, ADD_NEW_POST, DELETE_POST, LOAD_POSTS, Post, SET_STATUS_ADD_POST } from './types';
 
 export const loadPosts: ActionCreator<Action> = (posts: Post[]): ActionTypes => {
   return {
@@ -19,5 +19,12 @@ export const setStatusAddPost: ActionCreator<Action> = (status: boolean): Action
   return {
     type: SET_STATUS_ADD_POST,
     payload: status,
+  };
+};
+
+export const deletePost: ActionCreator<Action> = (id: number): ActionTypes => {
+  return {
+    type: DELETE_POST,
+    payload: id,
   };
 };
