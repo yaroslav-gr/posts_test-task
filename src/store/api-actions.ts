@@ -1,4 +1,4 @@
-import { addNewPost, loadPosts } from './actions';
+import { addNewPost, loadPosts, setStatusAddPost } from './actions';
 import { APIRoute } from '../const/const';
 import { ThunkDispatch } from 'redux-thunk';
 import { Action } from 'redux';
@@ -20,6 +20,8 @@ export const addPost = (postData: AddPostFormData) => (next: ThunkDispatch<undef
     },
   })
     .then(({data}) => {
+      next(setStatusAddPost(true));
       next(addNewPost(data));
-    });
+    })
+    .catch((error) => console.log(error));
 };

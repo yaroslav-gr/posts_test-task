@@ -1,5 +1,6 @@
 import React, { ChangeEvent, ReactEventHandler, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { setStatusAddPost } from '../../store/actions';
 import { addPost } from '../../store/api-actions';
 import { State } from '../../store/types';
 
@@ -30,6 +31,11 @@ const AddPostForm = (): JSX.Element => {
   useEffect(() => {
     setTitle(``);
     setDescription(``);
+    setTitleDirty(false);
+    setDescriptionDirty(false);
+    setTitleError(`Поле должно быть заполнено`);
+    setDescriptionError(`Поле должно быть заполнено`);
+    setFormValid(false);
   }, [posts])
 
   const titleHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -71,6 +77,7 @@ const AddPostForm = (): JSX.Element => {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     if(title !== `` && description !== ``) {
+      dispatch(setStatusAddPost(false));
       dispatch(addPost({
         userId: 1,
         title: titleRef.current.value,
@@ -81,7 +88,8 @@ const AddPostForm = (): JSX.Element => {
 
   return (
     <React.Fragment>
-      <div className='min-h-[12.5rem] flex flex-col justify-center card'>
+      <div className='min-h-[12.5rem] flex flex-col justify-center card relative'>
+        <div className={isPostLoaded ? `invisible` : `lds-dual-ring loader`}></div>
         <h1 className='mb-4 text-2xl justify-self-start'>Create a new post</h1>
         <form
           className='flex flex-col'

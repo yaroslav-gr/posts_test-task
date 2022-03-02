@@ -889,6 +889,59 @@ body::-webkit-scrollbar-thumb {
   /* creates padding around scroll thumb */
 }
 
+/* loader form post styles */
+
+.loader {
+  /* height: 100%;
+  width: 100%; */
+}
+
+.lds-dual-ring {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin-left: -1rem;
+  border-radius: 0.5rem;
+  z-index: 100;
+  background: rgb(203, 213, 225, 0.6);
+}
+
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  -webkit-animation: lds-dual-ring 1.2s linear infinite;
+          animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@-webkit-keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .hover\:bg-slate-100:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(241 245 249 / var(--tw-bg-opacity));
@@ -911,10 +964,6 @@ body::-webkit-scrollbar-thumb {
 .disabled\:hover\:bg-white:hover:disabled {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.disabled\:hover\:bg-none:hover:disabled {
-  background-image: none;
 }
 
 .disabled\:hover\:text-slate-500:hover:disabled {
