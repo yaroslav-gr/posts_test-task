@@ -1,4 +1,4 @@
-import { State, ActionTypes, LOAD_POSTS, ADD_NEW_POST, SET_STATUS_ADD_POST, DELETE_POST } from './types';
+import { State, ActionTypes, LOAD_POSTS, ADD_NEW_POST, SET_STATUS_ADD_POST, DELETE_POST, EDIT_POST } from './types';
 
 const initialState: State = {
   posts: [],
@@ -29,6 +29,23 @@ const reducer = (state = initialState, action: ActionTypes): State => {
       return {
         ...state,
         posts: state.posts.filter((item) => item.id !== action.payload)
+      };
+
+      case EDIT_POST:
+      return {
+        ...state,
+        posts: state.posts.map((post) => {
+          if(post.id === action.payload.id) {
+            return {
+              userId: post.userId,
+              id: post.id,
+              title: action.payload.title,
+              body: action.payload.body,
+            }
+          } else {
+            return post;
+          };
+        })
       };
 
     default: return state;

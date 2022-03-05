@@ -6,6 +6,7 @@ export enum AppRoute {
 export enum APIRoute {
   POSTS = `/posts?_limit=7`,
   ADD = `/posts`,
+  EDIT = `/posts/`
 };
 
 export const navList = [

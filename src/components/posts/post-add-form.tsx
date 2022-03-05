@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ReactEventHandler, useEffect, useRef, useState } from 'react';
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setStatusAddPost } from '../../store/actions';
 import { addPost } from '../../store/api-actions';
@@ -29,8 +29,6 @@ const AddPostForm = (): JSX.Element => {
   }, [titleError, descriptionError]);
 
   useEffect(() => {
-    setTitle(``);
-    setDescription(``);
     setTitleDirty(false);
     setDescriptionDirty(false);
     setTitleError(`Поле должно быть заполнено`);
@@ -83,6 +81,8 @@ const AddPostForm = (): JSX.Element => {
         title: titleRef.current.value,
         body: descriptionRef.current.value
       }));
+      setTitle(``);
+      setDescription(``);
     };
   };
 
