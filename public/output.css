@@ -517,6 +517,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-radius: 0.5rem;
   padding: 1rem;
   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  position: relative;
 }
 
 .sr-only {
@@ -907,11 +908,6 @@ body::-webkit-scrollbar-thumb {
 
 /* loader form post styles */
 
-.loader {
-  /* height: 100%;
-  width: 100%; */
-}
-
 .lds-dual-ring {
   display: flex;
   justify-content: center;
@@ -923,6 +919,7 @@ body::-webkit-scrollbar-thumb {
   border-radius: 0.5rem;
   z-index: 100;
   background: rgb(203, 213, 225, 0.6);
+  top: 0;
 }
 
 .lds-dual-ring:after {
@@ -932,7 +929,7 @@ body::-webkit-scrollbar-thumb {
   height: 64px;
   margin: 8px;
   border-radius: 50%;
-  border: 6px solid #fff;
+  border: 4px solid #fff;
   border-color: #fff transparent #fff transparent;
   -webkit-animation: lds-dual-ring 1.2s linear infinite;
           animation: lds-dual-ring 1.2s linear infinite;

@@ -5,7 +5,8 @@ import { putPost } from '../../store/api-actions';
 import { PostProps } from './types';
 
 const Post = ({post}: PostProps): JSX.Element => {
-  const [isEdit, setStatusEdit] = useState(false);
+  const [isEditable, setStatusEditable] = useState(false);
+  const [isEdit, setStatusEdit] = useState(true);
   const [title, setTitle] = useState(post.title);
   const [titleDirty, setTitleDirty] = useState(false);
   const [description, setDescription] = useState(post.body);
@@ -15,6 +16,10 @@ const Post = ({post}: PostProps): JSX.Element => {
   const [formValid, setFormValid] = useState(false);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    setStatusEdit(true);
+  }, [post.title, post.body])
 
   useEffect(() => {
     if (titleError || descriptionError) {
@@ -65,6 +70,7 @@ const Post = ({post}: PostProps): JSX.Element => {
   };
 
   const onSaveHandler = () => {
+    setStatusEditable(false);
     setStatusEdit(false);
     dispatch(putPost({
       id: post.id,
@@ -75,17 +81,19 @@ const Post = ({post}: PostProps): JSX.Element => {
   };
 
   const onEditHandler = () => {
-    setStatusEdit(true);
+    setStatusEditable(true);
   };
 
   return (
     <React.Fragment>
-      <div className={isEdit ? `editable-post min-h-[12.5rem] flex flex-col justify-between card` : `min-h-[12.5rem] flex flex-col justify-between card`}>
-      {isEdit ? <h1 className='mb-4 text-2xl justify-self-start'>Edit post</h1> : ``}
-      {(titleDirty && titleError) && <div className='text-red-400 text-sm'>{titleError}</div>}
+      <div className={isEditable ? `editable-post min-h-[12.5rem] flex flex-col justify-between card` : `min-h-[12.5rem] flex flex-col justify-between card`}>
+      <div className={isEdit ? `invisible` : `lds-dual-ring`}></div>
+
+        {isEditable ? <h1 className='mb-4 text-2xl justify-self-start'>Edit post</h1> : ``}
+        {(titleDirty && titleError) && <div className='text-red-400 text-sm'>{titleError}</div>}
         
         {
-          isEdit ?
+          isEditable ?
           <textarea
             rows={2}
             className='outline-none border-b text-black pt-4'
@@ -104,7 +112,7 @@ const Post = ({post}: PostProps): JSX.Element => {
         {(descriptionDirty && descriptionError) && <div className='text-red-400 text-sm'>{descriptionError}</div>}
 
         {
-          isEdit ?
+          isEditable ?
           <textarea
             rows={7}
             className='outline-none border-b text-black pt-4'
@@ -130,7 +138,7 @@ const Post = ({post}: PostProps): JSX.Element => {
           </button>
 
           {
-            isEdit ? 
+            isEditable ? 
             <button
               className='disabled:opacity-75 disabled:hover:bg-white disabled:hover:text-slate-500 rounded-lg p-2 text-slate-500 leading-[2rem] text-2xl hover:bg-slate-100 hover:text-slate-900'
               disabled={!formValid}

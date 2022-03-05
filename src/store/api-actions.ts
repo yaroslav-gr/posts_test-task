@@ -35,5 +35,9 @@ export const putPost = (postData: Post) => (next: ThunkDispatch<undefined, undef
   })
     .then(({data}) => {
       next(editPost(data));      
-    });
+    })
+    .catch((error) => {
+      console.log(error);
+      next(editPost(postData));
+    })
 };
