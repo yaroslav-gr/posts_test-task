@@ -4,7 +4,7 @@ export enum AppRoute {
 };
 
 export enum APIRoute {
-  POSTS = `/posts?_limit=7`,
+  POSTS = `/posts`,
   ADD = `/posts`,
   EDIT = `/posts/`
 };

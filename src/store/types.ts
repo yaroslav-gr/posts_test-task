@@ -3,6 +3,9 @@ export const ADD_NEW_POST = `posts/addNewPost`;
 export const SET_STATUS_ADD_POST = `posts/setStatusAddPost`;
 export const DELETE_POST = `posts/deletePost`;
 export const EDIT_POST = `posts/editPost`;
+export const SET_PAGES_COUNT = `pages/setPagesCount`;
+export const SET_CURRENT_POSTS_LIST = `posts/getCurrentPostsList`;
+export const SET_CURRENT_PAGE = `pages/setCurrentPage`;
 
 export interface Post {
   userId: number,
@@ -12,8 +15,11 @@ export interface Post {
 };
 
 export interface State {
-  posts: Post[],
-  isPostAdded: boolean | null,
+  posts: Array<Post>,
+  isPostAdded: boolean,
+  pagesCount: number,
+  currentPage: number,
+  postForRender: Array<Post>
 };
 
 export interface ActionLoadPosts {
@@ -41,8 +47,25 @@ export interface ActionEditPost {
   payload: Post,
 };
 
+export interface ActionSetPagesCount {
+  type: typeof SET_PAGES_COUNT,
+};
+
+export interface ActionSetCurrentPostsList {
+  type: typeof SET_CURRENT_POSTS_LIST,
+};
+
+export interface ActionSetCurrentPage {
+  type: typeof SET_CURRENT_PAGE,
+  payload: number,
+};
+
 export type ActionTypes = ActionLoadPosts |
                           ActionAddNewPost |
                           ActionSetStatusAddPost |
                           ActionDeletePost |
-                          ActionEditPost;
+                          ActionEditPost |
+                          ActionSetPagesCount |
+                          ActionSetCurrentPostsList |
+                          ActionSetCurrentPage;
+

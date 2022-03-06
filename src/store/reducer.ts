@@ -1,8 +1,12 @@
-import { State, ActionTypes, LOAD_POSTS, ADD_NEW_POST, SET_STATUS_ADD_POST, DELETE_POST, EDIT_POST } from './types';
+import { calculatePagesCount, getPostsForRender } from '../utils/utils';
+import { State, ActionTypes, LOAD_POSTS, ADD_NEW_POST, SET_STATUS_ADD_POST, DELETE_POST, EDIT_POST, SET_PAGES_COUNT, SET_CURRENT_POSTS_LIST, SET_CURRENT_PAGE } from './types';
 
 const initialState: State = {
   posts: [],
   isPostAdded: true,
+  pagesCount: 0,
+  currentPage: 1,
+  postForRender: []
 };
 
 const reducer = (state = initialState, action: ActionTypes): State => {
@@ -46,6 +50,24 @@ const reducer = (state = initialState, action: ActionTypes): State => {
             return post;
           };
         })
+      };
+
+      case SET_PAGES_COUNT:
+      return {
+        ...state,
+        pagesCount: calculatePagesCount(state.posts)
+      };
+
+      case SET_CURRENT_POSTS_LIST:
+      return {
+        ...state,
+        postForRender: getPostsForRender(state.currentPage, state.posts),
+      };
+
+      case SET_CURRENT_PAGE:
+      return {
+        ...state,
+        currentPage: action.payload,
       };
 
     default: return state;

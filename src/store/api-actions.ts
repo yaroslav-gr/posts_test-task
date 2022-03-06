@@ -1,4 +1,4 @@
-import { addNewPost, loadPosts, setStatusAddPost, editPost } from './actions';
+import { addNewPost, loadPosts, setStatusAddPost, editPost, setPagesCount, setCurrentPostsList } from './actions';
 import { APIRoute } from '../const/const';
 import { ThunkDispatch } from 'redux-thunk';
 import { Action } from 'redux';
@@ -10,7 +10,9 @@ import { Post } from './types';
 export const fetchPosts = () => (next: ThunkDispatch<undefined, undefined, Action>, _: RootState, api: AxiosInstance): void => {
   api.get(APIRoute.POSTS)
     .then(({data}) => {
-      next(loadPosts(data))
+      next(loadPosts(data));
+      next(setPagesCount());
+      next(setCurrentPostsList());
     });
 };
 

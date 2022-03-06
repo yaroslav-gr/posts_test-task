@@ -1,5 +1,5 @@
 import { ActionCreator, Action } from 'redux';
-import { ActionTypes, ADD_NEW_POST, DELETE_POST, EDIT_POST, LOAD_POSTS, Post, SET_STATUS_ADD_POST } from './types';
+import { ActionTypes, ADD_NEW_POST, DELETE_POST, EDIT_POST, LOAD_POSTS, Post, SET_CURRENT_PAGE, SET_CURRENT_POSTS_LIST, SET_PAGES_COUNT, SET_STATUS_ADD_POST } from './types';
 
 export const loadPosts: ActionCreator<Action> = (posts: Post[]): ActionTypes => {
   return {
@@ -33,5 +33,24 @@ export const editPost: ActionCreator<Action> = (post: Post): ActionTypes => {
   return {
     type: EDIT_POST,
     payload: post,
+  };
+};
+
+export const setPagesCount: ActionCreator<Action> = (): ActionTypes => {
+  return {
+    type: SET_PAGES_COUNT,
+  };
+};
+
+export const setCurrentPostsList: ActionCreator<Action> = (): ActionTypes => {
+  return {
+    type: SET_CURRENT_POSTS_LIST,
+  };
+};
+
+export const setCurrentPage: ActionCreator<Action> = (page: number): ActionTypes => {
+  return {
+    type: SET_CURRENT_PAGE,
+    payload: page,
   };
 };
