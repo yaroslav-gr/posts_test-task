@@ -1,8 +1,8 @@
 import { Post } from "../store/types";
 
-export const calculatePagesCount = (posts: Array<Post>) => {
-  const COUNT_ON_PAGE = 8;
+const COUNT_ON_PAGE = 8;
 
+export const calculatePagesCount = (posts: Array<Post>): number => {
   if (posts.length <= 7) {
     return 1;
   }
@@ -18,13 +18,13 @@ export const calculatePagesCount = (posts: Array<Post>) => {
   }
 };
 
-export const getPostsForRender = (page = 1, posts: Array<Post>) => {
+export const getPostsForRender = (page = 1, posts: Array<Post>): Array<Post> => {
   if (page === 1) {
     return posts.slice(0, 7);
   }
 
-  const start = page * 8 - 8 - 1;
-  const end = start + 8;
+  const start = page * COUNT_ON_PAGE - COUNT_ON_PAGE - 1;
+  const end = start + COUNT_ON_PAGE;
 
   return (posts.slice(start, end))
 };
