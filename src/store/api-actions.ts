@@ -10,7 +10,7 @@ import { Post } from './types';
 export const fetchPosts = () => (next: ThunkDispatch<undefined, undefined, Action>, _: RootState, api: AxiosInstance): void => {
   api.get(APIRoute.POSTS)
     .then(({data}) => {
-      next(loadPosts(data));
+      next(loadPosts(data.reverse()));
       next(setPagesCount());
       next(setCurrentPostsList());
     });
@@ -25,6 +25,8 @@ export const addPost = (postData: AddPostFormData) => (next: ThunkDispatch<undef
     .then(({data}) => {
       next(setStatusAddPost(true));
       next(addNewPost(data));
+      next(setPagesCount());
+      next(setCurrentPostsList());
     })
     .catch((error) => console.log(error));
 };
@@ -36,10 +38,12 @@ export const putPost = (postData: Post) => (next: ThunkDispatch<undefined, undef
     },
   })
     .then(({data}) => {
-      next(editPost(data));      
+      next(editPost(data));  
+      next(setCurrentPostsList());
     })
     .catch((error) => {
       console.log(error);
       next(editPost(postData));
+      next(setCurrentPostsList());
     })
 };

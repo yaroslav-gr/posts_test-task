@@ -6,9 +6,11 @@ import Logo from './logo';
 const NavMenu = (): JSX.Element => {
   return (
     <React.Fragment>
-      <nav className="flex flex-wrap fl justify-end space-x-6 mb-3">
+      <nav className="flex flex-wrap fl justify-between space-x-6 mb-3">
         <Logo/>
-        {navList.map(item => <NavMenuItem key={item.name} url={item.url} name={item.name}/>)}
+        <div>
+          {navList.map(item => <NavMenuItem key={item.name} url={item.url} name={item.name}/>)}
+        </div>
       </nav>
     </React.Fragment>
   );

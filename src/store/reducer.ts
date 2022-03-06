@@ -4,9 +4,9 @@ import { State, ActionTypes, LOAD_POSTS, ADD_NEW_POST, SET_STATUS_ADD_POST, DELE
 const initialState: State = {
   posts: [],
   isPostAdded: true,
-  pagesCount: 0,
+  pagesCount: 1,
   currentPage: 1,
-  postForRender: []
+  postsForRender: []
 };
 
 const reducer = (state = initialState, action: ActionTypes): State => {
@@ -61,7 +61,7 @@ const reducer = (state = initialState, action: ActionTypes): State => {
       case SET_CURRENT_POSTS_LIST:
       return {
         ...state,
-        postForRender: getPostsForRender(state.currentPage, state.posts),
+        postsForRender: getPostsForRender(state.currentPage, state.posts),
       };
 
       case SET_CURRENT_PAGE:

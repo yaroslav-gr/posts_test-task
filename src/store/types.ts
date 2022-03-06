@@ -19,7 +19,7 @@ export interface State {
   isPostAdded: boolean,
   pagesCount: number,
   currentPage: number,
-  postForRender: Array<Post>
+  postsForRender: Array<Post>
 };
 
 export interface ActionLoadPosts {

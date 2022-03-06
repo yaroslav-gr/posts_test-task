@@ -10,6 +10,13 @@
     box-shadow: theme('boxShadow.xl');
     position: relative;
   }
+
+  .active-page {
+    background-color: theme('colors.indigo.50');
+    border-color: theme('colors.indigo.500');
+    text: theme('colors.indigo.600');
+    z-index: 10;
+  }
 }
 
 .editable-post {
@@ -26,7 +33,7 @@
   color: rgb(100 116 139);
 }
 
-/* scroll bar */
+/* scroll bar start*/
 textarea::-webkit-scrollbar {
   width: 12px;               /* width of the entire scrollbar */
 }
@@ -54,8 +61,9 @@ body::-webkit-scrollbar-thumb {
   border-radius: 20px;       /* roundness of the scroll thumb */
   border: 3px solid rgb(228, 228, 228);  /* creates padding around scroll thumb */
 }
+/* scroll bar end*/
 
-/* loader form post styles */
+/* loader form post styles start*/
 .lds-dual-ring {
   display: flex;
   justify-content: center;
@@ -90,3 +98,5 @@ body::-webkit-scrollbar-thumb {
     transform: rotate(360deg);
   }
 }
+
+/* loader form post styles end*/

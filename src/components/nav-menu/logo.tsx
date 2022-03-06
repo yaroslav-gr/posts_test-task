@@ -5,7 +5,7 @@ import { AppRoute } from '../../const/const';
 const Logo = (): JSX.Element => {
   return (
     <React.Fragment>
-      <div className='w-full'>
+      <div className='self-start'>
         <Link to={AppRoute.ROOT} className='inline-block'>
           <img
             className='w-12 h-12'

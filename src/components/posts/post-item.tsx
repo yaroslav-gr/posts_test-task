@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { deletePost } from '../../store/actions';
+import { deletePost, setCurrentPostsList, setPagesCount } from '../../store/actions';
 import { putPost } from '../../store/api-actions';
 import { PostProps } from './types';
 
@@ -19,7 +19,7 @@ const Post = ({post}: PostProps): JSX.Element => {
 
   useEffect(() => {
     setStatusEdit(true);
-  }, [post.title, post.body])
+  })
 
   useEffect(() => {
     if (titleError || descriptionError) {
@@ -67,6 +67,8 @@ const Post = ({post}: PostProps): JSX.Element => {
 
   const deleteButtonHandler = (id: number) => {
     dispatch(deletePost(id));
+    dispatch(setPagesCount());
+    dispatch(setCurrentPostsList());
   };
 
   const onSaveHandler = () => {
