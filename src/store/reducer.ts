@@ -20,7 +20,12 @@ const reducer = (state = initialState, action: ActionTypes): State => {
     case ADD_NEW_POST:
       return {
         ...state,
-        posts: [action.payload, ...state.posts]
+        posts: [{
+          userId: action.payload.userId,
+          id: state.posts[0].id + 1,
+          title: action.payload.title,
+          body: action.payload.body,
+        }, ...state.posts]
       };
 
       case SET_STATUS_ADD_POST:
