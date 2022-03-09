@@ -1,10 +1,28 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { deletePost, setCurrentPostsList, setPagesCount } from '../../store/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { deletePost, setCurrentPage, setCurrentPostsList, setPagesCount } from '../../store/actions';
 import { putPost } from '../../store/api-actions';
+import { State } from '../../store/types';
 import { PostProps } from './types';
 
 const Post = ({post}: PostProps): JSX.Element => {
+  const currentPage = useSelector((state: State) => state.currentPage);
+  const countPages = useSelector((state: State) => state.pagesCount);
+  const postsForRender = useSelector((state: State) => state.postsForRender);
+
+  useEffect(() => {
+    if (postsForRender.length === 1 && currentPage === 1) {
+      return;
+    }
+    
+    if (postsForRender.length === 1 && currentPage === countPages) {
+      return () => {
+        dispatch(setCurrentPage(currentPage - 1))
+        dispatch(setCurrentPostsList());
+      }
+    }
+  }, [postsForRender])
+
   const [isEditable, setStatusEditable] = useState(false);
   const [isEdit, setStatusEdit] = useState(true);
   const [title, setTitle] = useState(post.title);
@@ -19,7 +37,7 @@ const Post = ({post}: PostProps): JSX.Element => {
 
   useEffect(() => {
     setStatusEdit(true);
-  })
+  });
 
   useEffect(() => {
     if (titleError || descriptionError) {

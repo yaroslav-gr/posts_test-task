@@ -25,6 +25,6 @@ export const getPostsForRender = (page = 1, posts: Array<Post>): Array<Post> => 
 
   const start = page * COUNT_ON_PAGE - COUNT_ON_PAGE - 1;
   const end = start + COUNT_ON_PAGE;
-
+  
   return (posts.slice(start, end))
 };
