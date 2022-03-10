@@ -1,7 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { Action, applyMiddleware, createStore } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import thunk, { ThunkAction, ThunkDispatch } from "redux-thunk";
+import { Action } from "redux";
+import { ThunkAction, ThunkDispatch } from "redux-thunk";
 import axiosInstance from "../services/api";
 import { reducer } from "./reducer";
 
